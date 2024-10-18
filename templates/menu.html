@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function showAlert(message) {
+            alert(message);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Menu</h2>
+        {% if message %}
+            <script>showAlert("{{ message }}");</script>
+        {% endif %}
+        <ul>
+            <li><a href="{{ url_for('test_connection', token=token) }}"><strong>Test Connection</strong></a></li>
+            <li><a href="{{ url_for('display_user_info', token=token) }}"><strong>Display User Info</strong></a></li>
+            <li><a href="{{ url_for('list_rooms', token=token) }}"><strong>List Rooms</strong></a></li>
+            <li><a href="{{ url_for('create_room', token=token) }}"><strong>Create Room</strong></a></li>
+            <li><a href="{{ url_for('send_message', token=token) }}"><strong>Send Message to Room</strong></a></li>
+        </ul>
+        <button class="logout"><a href="/">Logout</a></button>
+    </div>
+</body>
+</html>

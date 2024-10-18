@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .dropdown {
+            display: none;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 5px;
+            text-align: justify; /* Justify text inside dropdown */
+        }
+        .room-title {
+            cursor: pointer; /* Change cursor to pointer */
+        }
+        .room-id {
+            display: block; /* Make ID a block element */
+            margin: 5px 0; /* Margin for spacing */
+            width: 100%; /* Ensure it takes full width */
+            word-wrap: break-word; /* Break long words */
+            white-space: normal; /* Allow wrapping */
+            color: #666; /* Slightly dimmed color for IDs */
+        }
+    </style>
+</head>
+<body class="rooms-scroll">
+    <div class="container-scroll">
+        <h2>Webex Rooms</h2>
+        <ul>
+            {% for room in rooms %}
+            <li class="room-padding">
+                <span class="room-title" onclick="toggleDropdown('{{ room.id }}')">
+                    <strong>{{ room.title }}</strong>
+                </span> 
+                <div id="dropdown-{{ room.id }}" class="dropdown">
+                    <div class="room-id" style="color: #333;">ID: {{ room.id }}</div>
+                    <p>Created: {{ room.created.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+                    <p>Last Activity: {{ room.last_activity.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('menu', token=access_token) }}"><button>Back to Menu</button></a>
+    </div>
+    <script>
+        function toggleDropdown(roomId) {
+            const dropdown = document.getElementById(`dropdown-${roomId}`);
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

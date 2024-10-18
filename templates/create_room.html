@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Room</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Create Room</h2>
+        {% if message %}
+            <script>
+                function showAlert(message) {
+                    alert(message);
+                }
+                showAlert("{{ message }}");
+            </script>
+        {% endif %}
+        <form method="POST" action="{{ url_for('create_room', token=access_token) }}">
+            <input type="hidden" name="access_token" value="{{ access_token }}">
+            <label for="title" style="text-align: justify;">Room Title:</label>
+            <input type="text" id="title" name="title" required>
+            <button class="create-room" type="submit">Create Room</button>
+        </form>
+        <br><br><br>
+        <a href="{{ url_for('menu', token=access_token) }}"><button>Back to Menu</button></a>
+    </div>
+</body>
+</html>

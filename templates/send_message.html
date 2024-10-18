@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Message</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Send Message</h2>
+        <!-- Display the message result (success or failure) -->
+        {% if message %}
+            <script>
+                function showAlert(message) {
+                    alert(message);
+                }
+                showAlert("{{ message }}");
+            </script>
+        {% endif %}
+        <form method="POST" action="{{ url_for('send_message', token=access_token) }}">
+            <input type="hidden" name="access_token" value="{{ access_token }}">
+            <label for="room_id" style="text-align: justify;">Room ID:</label>
+            <input type="text" id="room_id" name="room_id" required>
+            <label for="message" style="text-align: justify;">Message:</label>
+            <Input id="message" name="message" rows="10" required>
+            <br>
+            <button class="send-message" type="submit">Send Message</button>
+        </form>
+        <br>
+        <br>
+        <a href="{{ url_for('menu', token=access_token) }}">
+            <button>Back to Menu</button>
+        </a>
+    </div>
+</body>
+</html>

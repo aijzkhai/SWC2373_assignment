@@ -1,0 +1,183 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-height: 400px; /* Adjust the height as per your need */
+    overflow-y: auto;  /* Adds a vertical scroll bar when content overflows */
+}
+
+/* Custom Scrollbar for Firefox */
+body {
+    scrollbar-width: thin; /* Set to 'thin' for a minimal scrollbar */
+    scrollbar-color: #a3a3a3 #e0e0e0; /* Handle and track colors */
+}
+
+.container-scroll {
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    position: fixed;
+    top: 50px;
+    z-index: 1000;
+    max-height: 500px; /* Adjust the height as per your need */
+    overflow-y: auto;  /* Adds a vertical scroll bar when content overflows */
+}
+
+/* Custom Scrollbar for Webkit (Chrome, Edge, Safari) */
+.container-scroll::-webkit-scrollbar {
+    width: 2px; /* Width of the scrollbar */
+}
+
+.container-scroll::-webkit-scrollbar-track {
+    background: #e0e0e0; /* Scrollbar track color */
+    border-radius: 20px; /* Rounded corners for the track */
+}
+
+.container-scroll::-webkit-scrollbar-thumb {
+    background-color: #a3a3a3; /* Color of the scrollbar handle */
+    border-radius: 10px; /* Rounded corners for the scrollbar handle */
+    border: 2px solid #e0e0e0; /* Padding around the scrollbar handle */
+}
+
+.container-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #707070; /* Darker color on hover */
+}
+
+
+.container {
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    position: fixed;
+    top: 50px;
+    z-index: 1000;
+}
+
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem; /* Slightly larger font for better visibility */
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    padding: 11px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Added border-radius */
+    width: 96%;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px; /* Added border-radius */
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.logout {
+    padding: 5px 15px;
+    background-color: #007bff;
+    margin: 5px;
+    color: white;
+    border: none;
+    border-radius: 120px; /* Added border-radius */
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.logout a{
+    color: white; 
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 5px;
+}
+
+.room-padding
+{
+    padding: 15px;
+     
+}
+
+
+.room-padding div p
+{
+    padding-right: 30px;
+    text-align: justify;
+}
+
+
+.create-room, .send-message
+{
+    background-color: #333;
+}
+
+
+.dropdown {
+    display: none; /* Hidden by default */
+    position: static;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.116);
+    z-index: 1;
+    padding: 10px;
+    border-radius: 8px; /* Added border-radius */
+    text-align: justify; /* Justified text inside dropdown */
+}
+
+.room-item {
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.room-item:hover {
+    background-color: #f1f1f1; /* Highlight on hover */
+}
